@@ -1,0 +1,58 @@
+﻿{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Обо мне</title>
+	<link rel="stylesheet" href="{% static 'css/reset.css' %}">
+	<link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap-4.1.1-dist/css/bootstrap-grid.min.css' %}">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+	<link rel="stylesheet" href="{% static 'script/jquery-ui-1.12.1.custom/jquery-ui.css' %}" type="text/css">
+	<link rel="stylesheet" href="{% static 'css/style1.css' %}">
+</head>
+<body>
+	<main class="about about-main container-fluid">
+		<h1 class="page-title">Обо мне</h1>
+		<div class="description about__description">
+			<p class="about__description--paragraph">Добро пожаловать на мой сайт-кабинет! Меня зовут Симонов Валерий Матвеевич.</p> 
+			<p class="description__paragraph">Я врач-апитерапевт c 45-летним опытом в области медицины.</p>
+			<p class="description__paragraph">Мой путь в медицине начался в 1983 году после окончания сначала Одесского медицинского училища, а затем педиатрического факультета Днепропетровского медицинского института.</p>
+			<p class="description__paragraph">
+				За более чем 30 лет практики я прошел путь от фельдшера бригады скорой помощи до заведующего отделением городской детской больницы.
+			</p>
+			<p class="description__paragraph">
+				Имея большой опыт лечения различных заболеваний, я пришел к выводу об актуальности использования натуральных продуктов пчеловодства. Благодаря их мягкому воздействию они не наносят вред организму, а наоборот, повышают его защитные функции.
+			</p>
+			<p class="description__paragraph">Начиная с 2011г. веду свою деятельность как апитерапевт, консультируя и назначая лечение как для взрослых, так и для детей.</p>
+			<p class="description__paragraph">
+				На моем сайте вы можете получить консультацию и заказать качественную продукцию от украинских производителей.
+			</p>
+		</div>
+		<button class="button about__main--button" id="get_cons_btn">Получить консультацию
+		</button>
+		<div class="video about__main--video row">
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/DgveUJlum6k?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+		</div>	
+	</main>
+	<div class="pop-up">
+			<form action="https://formspree.io/valeriy.symonov@gmail.com" method="POST" class="form col-12">
+				<fieldset>
+					<legend>Запись на консультацию</legend>
+					<label for="name">Имя</label>
+					<input type="text" id="name" name="name" placeholder="Введите ваше имя..." required>
+					<label for="email">E-mail</label>
+					<input type="email" id="email" name="email" placeholder="Введите ваш e-mail..." required>
+					<label for="tel">Телефон</label>
+					<input type="tel" id="tel" name="tel" placeholder="Введите ваш телефон..." required>
+					<label for="message">Сообщение</label>
+					<textarea id="message" name="message" placeholder="Введите сообщение..." required></textarea>
+					<input type="submit" value="Отправить">
+				</fieldset>
+				<div class="close_pop-up"></div>
+			</form>
+		</div>
+	{% endblock %}

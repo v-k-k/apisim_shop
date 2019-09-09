@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <h1 class="prod_header">{{ product.name }}</h1>
+    <div class="about_prod row">
+     <div class="col-4">
+        {% for image_it in product.product_img_set.all  %}
+        <div class="prod-img-item">
+            <img class="img-fluid" src="{{ image_it.img.url }}" >
+        </div>
+        {% endfor %}
+    </div>
+    <div class="col-8">
+        <!-- nav tabs-->
+        <div class="tabs">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a href="#desc" class="nav-link active" aria-controls="desc" role="tab" data-toggle="tab">
+                        Описание
+                    </a>
+                </li>
+                <li class="nav-item" >
+                    <a href="#deliv" class="nav-link" aria-controls="deliv" role="tab" data-toggle="tab">
+                        Доставка
+                    </a>
+                </li>
+                <li class="nav-item" >
+                    <a href="#MESSAGE" class="nav-link" aria-controls="MESSAGE" role="tab" data-toggle="tab">
+                        MESSAGE
+                    </a>
+                </li>
+                <li class="nav-item" >
+                    <a href="#SETTINGS" class="nav-link" aria-controls="SETTINGS" role="tab" data-toggle="tab">
+                        SETTINGS
+                    </a>
+                </li>
+            </ul>
+
+            <!-- tab panes-->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="desc">{{ product.short_description }}</div>
+                <div role="tabpanel" class="tab-pane" id="deliv">
+                Самовывоз г.Кривой Рог.
+                    Доставка в отделение "Новой почты" по предоплате или наложенным платежом.
+                </div>
+                <div role="tabpanel" class="tab-pane" id="MESSAGE">Fuck</div>
+                <div role="tabpanel" class="tab-pane" id="SETTINGS">you</div>
+
+            </div>
+        </div>
+         <p>
+            Цена: {{ product.price }}
+        </p>
+        <div>
+            <form id="form_buying_product" class="form-inline form_buying_product" action="{% url 'basket_adding' %}" data-prod_id = "{{ product.id }}"
+                        data-name = "{{ product.name }}"
+                        data-price = "{{ product.price }}">{% csrf_token %}
+                <div class="form-group">
+                    <input type="number" class="form-control item-number" name="number" id="number" value="1">
+                </div>
+                <div class="form-group">
+                    <button type="submit" id="submit_btn" class="btn btn-success btn-buy"
+                        >
+                        Заказать
+                    </button>
+                </div>
+        </form>
+    </div>
+</div>
+<div>{{ product.description }}</div>
+</div>
+
+
+</div>
+</div>
+<footer>
+   <p>HONEY PRODUCTION © 2018 PRIVACY POLICY </p>
+</footer>
+<!--<script src="{% static 'script/script.js' %}" type="text/javascript"></script>-->
+</body>
+</html>
+{% endblock %}

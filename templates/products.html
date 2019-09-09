@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+	<main class="products-page container-fluid">
+		<h1 class="page-title page-title--products" style="text-align: center">Продукты нашего магазина</h1>
+        <h6 class="page-title page-title--products">При заказе более 2 различных наименований товаров консультация врача-апитерапевта предоставляется бесплатно.</h6>
+		<h2 class="page-title page-title--products" style="text-align: center">Продукты на основе меда</h2>
+        <ul class="products">
+            {% for i in products_honey %}
+                {% include 'product_item.html' %}
+            {% endfor %}
+		</ul>
+        <h2 class="page-title page-title--products" style="text-align: center">Настойки</h2>
+        <ul class="products">
+            {% for i in products_nastoiki %}
+                {% include 'product_item.html' %}
+            {% endfor %}
+		</ul>
+        <h2 class="page-title page-title--products" style="text-align: center">Чистые апипродукты</h2>
+        <ul class="products">
+            {% for i in products_clear %}
+                {% include 'product_item.html' %}
+            {% endfor %}
+		</ul>
+</main>
+{% endblock %}

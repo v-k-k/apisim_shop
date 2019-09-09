@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Мёд с маточным молочком</title>
+
+	<link rel="stylesheet" href="{% static 'css/reset.css' %}">
+	<link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap-4.1.1-dist/css/bootstrap-grid.min.css' %}">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+	<link rel="stylesheet" href="{% static 'script/jquery-ui-1.12.1.custom/jquery-ui.css' %}" type="text/css">
+	<link rel="stylesheet" href="{% static 'css/style1.css' %}">
+</head>
+<body>
+    <div class="container">
+    {% for i in product %}
+        {% if i.product.name == 'Мёд с маточным молочком 2%' %}
+                <h1 class="prod_header">{{ i.product.name }}</h1>
+		<div class="about_prod">
+			<div class="img">
+				<img class="img-fluid" src="{% static 'img/products/mini/1.jpg' %}" alt="Мёд с маточным молочком">
+                <form id="form_buying_product" class="form-inline">
+                    <input type="number" form="form-control" name="number" id="number">
+                    <button type="submit" id="submit_btn" class="btn btn-success btn-buy"
+                    data-prod_id = "{{ product.id }}"
+                    data-name = "{{ product.name }}"
+                    data-price = "{{ product.price }}">
+                    Заказать
+                    </button>
+                </form>
+			</div>
+			<div class="description">
+				<p>{{ i.product.description }}</p>
+			</div>	   			
+		</div>
+        {% endif %}
+    {% endfor %}
+	</div>
+<footer>
+    	<p>HONEY PRODUCTION © 2018 PRIVACY POLICY </p>
+</footer>
+	<script src="{% static 'script/script.js' %}" type="text/javascript"></script>
+</body>
+</html>
+{% endblock %}

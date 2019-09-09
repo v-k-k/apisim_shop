@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Aпи Сим</title>
+    <link rel="stylesheet" href="{% static 'bxslider-4-4.2.12/dist/jquery.bxslider.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}" >
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}" >
+    <link rel="stylesheet" href="{% static 'bootstrap-4.1.1-dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'script/jquery-ui-1.12.1.custom/jquery-ui.css' %}"  type="text/css">
+    <link rel="stylesheet" href="{% static 'css/all.css' %}">
+
+</head>
+<body>
+<header class="page-header">
+	<div class="top-menu">
+            <div class="nav navbar-nav navbar-top">
+                <div class="basket-container">
+                	<i class="fas fa-shopping-basket"></i>
+                    <a href="{% url 'checkout' %}">Корзина  <span id="basket_total_amount"></span>
+                        <span id="basket_total_nmb">
+                        <!--{% url 'checkout' %}-->
+                        {% if products_total_nmb %}
+                            {{ products_total_nmb }}
+                        {% else %}
+                            0
+                        {% endif %}
+                        </span>
+                    </a>
+
+                    <div class="basket-items d-none">
+{#                    <form id="form_buying_product" class="form-inline form_buying_product" data-token="{% csrf_token %}">#}
+
+                        <ul class="">
+                            <li>Ваши покупки:</li>
+                            {% for thing in products_in_basket %}
+                                <li>
+                                    {{ thing.product.name }} * {{ thing.number }} = {{ thing.total_price }} грн.
+                                    <a class="delete-item" href="" data-prod_id="{{ thing.id }}">X</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+{#                    </form>#}
+                    </div>
+                </div>
+            </div>
+	</div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="logo d-flex flex-md-column align-items-center col-11 col-md-12">
+                <div class="logo__img-container">
+                    <img src="{% static 'img/logo2.png' %}" class="logo-img img-fluid">
+                </div>
+                <h1 class="logo__header align-self-center">Консультационный кабинет апитерапевта Симонова В.М.</h1>
+            </div>
+            <!-- Toggler/collapsibe Button -->
+
+            <div class="toggler col-1">
+                <label for="checkbox">
+                    <span><i class="fas fa-bars"></i></span>
+                </label>
+            </div>
+            <input type="checkbox" class="checkbox" id="checkbox">
+             <!-- End Of Toggler/collapsibe Button -->
+            <nav class="navigation col-md-12">
+                <ul class="menu no-gutters d-md-flex justify-content-between">
+                    <li class="menu_item"><a href={% url 'home' %}>Главная</a></li>
+                    <li class="menu_item"><a href={% url 'obo_mne' %}>Обо мне</a></li>
+                    <li class="menu_item"><a href={% url 'media-files' %}>Медиа</a></li>
+                    <li class="menu_item"><a href={% url 'products' %}>Продукты</a></li>
+                    <li class="menu_item"><a href={% url 'contacts' %}>Контакты</a></li>
+                    <li class="menu_item"><a href={% url 'consult' %}>Запись на консультацию</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+</header>
+{% block content %}
+{% endblock content %}
+<footer>
+    <p>Апи Сим © 2018 Криштоп Оксана </p>
+</footer>
+
+<!-- Optional JavaScript-->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="{% static 'script/jquery/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'script/jquery-ui-1.12.1.custom/jquery-ui.min.js' %}"></script>
+<script src="{% static 'bootstrap-4.1.1-dist/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'bxslider-4-4.2.12/dist/jquery.bxslider.min.js' %}"></script>
+<script src="{% static 'script/cart.js' %}"></script>
+<script src="{% static 'script/custom_script.js' %}"></script>
+
+</body>
+</html>

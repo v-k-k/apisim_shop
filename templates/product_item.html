@@ -1,0 +1,21 @@
+<li class="products__card">
+    <a class="products__img" href="{% url 'product' i.product.id %}">
+        <img src="{{ i.img.url }}" alt="">
+    </a>
+    <a class="products__title" href="{% url 'product' i.product.id %}">{{ i.product.name }} {{ i.product.price }} грн.
+    </a>
+    <div>
+    <form id="form_buying_product" class="form-inline form_buying_product" action="{% url 'basket_adding' %}" data-prod_id = "{{ i.product.id }}"
+                data-name = "{{ i.product.name }}"
+                data-price = "{{ i.product.price }}">{% csrf_token %}
+        <div class="form-group">
+            <input type="number" class="form-control item-number" name="number" id="number" placeholder="" value="1" min="1">
+        </div>
+        <div class="form-group">
+            <button type="submit" id="submit_btn" class="btn btn-success btn-buy order-btn">
+                Заказать
+            </button>
+        </div>
+    </form>
+    </div>
+</li>

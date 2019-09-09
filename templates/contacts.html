@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Запись на консультацию</title>
+	<link rel="stylesheet" href="{% static 'css/reset.css' %}">
+	<link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap-4.1.1-dist/css/bootstrap-grid.min.css' %}">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+	<link rel="stylesheet" href="{% static 'script/jquery-ui-1.12.1.custom/jquery-ui.css' %}" type="text/css">
+	<link rel="stylesheet" href="{% static 'css/style1.css' %}">
+</head>
+<body>
+	<form>
+		<fieldset class="area">
+			<legend>Контакты</legend>
+			<div class="contacts">
+				<div class="img_phone">
+					<img class="img-fluid" src="{% static 'img/telef104.png' %}">
+				</div>
+				<div class="contact">
+					<div class="cont_item">
+						<i class="fas fa-mobile-alt"></i>
+						<span>+38(098)279-21-37</span>
+					</div>
+					<div class="cont_item">
+						<i class="far fa-envelope"></i>
+						<span>valeriy.symonov@gmail.com</span>
+					</div>
+					<div class="cont_item">
+						<i class="fab fa-facebook-square"></i>
+						<span>/oksana.krishtop</span>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+	<footer>
+	    	<p>HONEY PRODUCTION © 2018 PRIVACY POLICY </p>
+	</footer>
+	<script src="{% static 'script/script.js' %}" type="text/javascript"></script>
+</body>
+</html>
+{% endblock %}
